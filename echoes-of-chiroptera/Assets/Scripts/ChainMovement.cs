@@ -8,17 +8,21 @@ public class ChainMovement : MonoBehaviour
     private float speed = 8f;
     private bool isChain;
     private bool isClimbing;
+    public Animator animator;
 
     [SerializeField] private Rigidbody2D rb;
     
     // Update is called once per frame
     void Update()
     {
-        vertical = Input.GetAxis("Vertical");
+        vertical = Input.GetAxis("Vertical")*speed;
+        
+
 
         if (isChain && Mathf.Abs(vertical) > 0f)
         {
             isClimbing = true;
+            
         }
     }
 
@@ -27,19 +31,22 @@ public class ChainMovement : MonoBehaviour
         if (isClimbing)
         {
             rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, vertical * speed);
+            rb.velocity = new Vector2(rb.velocity.x, vertical);
+            animator.SetFloat("Up", vertical);
         }
         else
         {
             rb.gravityScale = 4f;
+            animator.SetFloat("Up", 0);
         }
-    }
+        } 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Chain"))
         {
             isChain = true;
+            
         }
     }
 
@@ -49,6 +56,7 @@ public class ChainMovement : MonoBehaviour
         {
             isChain = false;
             isClimbing = false;
+            animator.SetFloat("Up", 0);
         }
     }
 }
