@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChainMovement : MonoBehaviour
 {
+    
     private float vertical;
     private float speed = 8f;
     private bool isChain;
@@ -48,6 +49,7 @@ public class ChainMovement : MonoBehaviour
             isChain = true;
             
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -59,4 +61,5 @@ public class ChainMovement : MonoBehaviour
             animator.SetFloat("Up", 0);
         }
     }
+    
 }

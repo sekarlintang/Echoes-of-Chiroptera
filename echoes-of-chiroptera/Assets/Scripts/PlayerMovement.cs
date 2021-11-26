@@ -17,11 +17,11 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
         body.velocity = new Vector2(horizontalMove, body.velocity.y);
         animator.SetFloat("Speed", horizontalMove);
-        if (Input.GetButtonDown("Vertical"))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             animator.SetBool("Down", true);
         }
-        if (Input.GetButtonUp("Vertical"))
+        if (Input.GetKeyUp(KeyCode.S))
         {
             animator.SetBool("Down", false);
         }
