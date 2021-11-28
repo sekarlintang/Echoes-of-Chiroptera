@@ -10,11 +10,14 @@ public class Interact : MonoBehaviour
     [SerializeField]
     private Text pickUpText;
     private bool pickUpAllowed;
+    public GameObject completeLevel;
 
     // Use this for initialization
     private void Start()
     {
         pickUpText.gameObject.SetActive(false);
+        completeLevel.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -44,7 +47,7 @@ public class Interact : MonoBehaviour
 
     private void PickUp()
     {
-        Destroy(gameObject);
+        completeLevel.SetActive(true);
     }
     
 }
