@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Chain
   - OneWayPlatform
+  - Fire
   layers:
   - Default
   - TransparentFX
