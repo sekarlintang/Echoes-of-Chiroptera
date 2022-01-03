@@ -1,2 +1,2 @@
 # Echoes-of-Chiroptera
-gatau
+Part of GIM Apprenticeship Hands-On
